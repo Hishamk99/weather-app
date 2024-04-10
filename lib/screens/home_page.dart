@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weather_application/widgets/no_weather_data.dart';
+import 'package:weather_application/widgets/weather_data.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -7,6 +7,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const NoWeatherData();
+    return const WeatherData();
   }
 }
