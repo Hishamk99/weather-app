@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_application/cubit/get_weather_cubit/get_weather_cubit.dart';
 import 'package:weather_application/cubit/get_weather_cubit/get_weather_state.dart';
+import 'package:weather_application/widgets/error_data.dart';
 import 'package:weather_application/widgets/no_weather_data.dart';
 import 'package:weather_application/widgets/weather_data.dart';
 
@@ -16,7 +17,7 @@ class HomePage extends StatelessWidget {
         if (state is WeatherLoadedState) {
           return WeatherData(weatherModel: state.weatherModel);
         } else if (state is WeatherFailureState) {
-          return const Text('There was an error');
+          return const ErrorData();
         } else {
           return const NoWeatherData();
         }
