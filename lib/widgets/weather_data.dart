@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:weather_application/models/weather_model.dart';
 import 'package:weather_application/screens/search_page.dart';
 
 class WeatherData extends StatelessWidget {
-  const WeatherData({super.key});
-
+  const WeatherData({super.key, required this.weatherModel});
+  final WeatherModel weatherModel;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -36,13 +37,13 @@ class WeatherData extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            const Text(
-              '40',
-              style: TextStyle(fontSize: 80),
+            Text(
+              weatherModel.temp.toString(),
+              style: const TextStyle(fontSize: 80),
             ),
-            const Text(
-              'london',
-              style: TextStyle(
+            Text(
+              weatherModel.cityame,
+              style: const TextStyle(
                 fontSize: 24,
               ),
             ),

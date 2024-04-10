@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_application/cubit/get_weather_cubit/get_weather_cubit.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
@@ -29,7 +31,12 @@ class SearchPage extends StatelessWidget {
                 height: 30,
               ),
               TextField(
-                onSubmitted: (value) {},
+                onSubmitted: (value) async {
+                  var getWeatherCubit =
+                      BlocProvider.of<GetWeatherCubit>(context);
+                  getWeatherCubit.getWeather(city: value);
+                  Navigator.pop(context);
+                },
                 decoration: const InputDecoration(
                   labelText: 'Search',
                   suffixIcon: Icon(Icons.search),

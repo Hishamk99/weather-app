@@ -7,7 +7,7 @@ class NoWeatherState extends WeatherState {}
 class WeatherLoadedState extends WeatherState {
   final WeatherModel weatherModel;
 
-  WeatherLoadedState({required this.weatherModel});
+  WeatherLoadedState(this.weatherModel);
 }
 
 class WeatherFailureState extends WeatherState {}
