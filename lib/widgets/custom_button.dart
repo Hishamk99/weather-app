@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weather_application/screens/search_page.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
@@ -8,7 +9,9 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Navigator.pushNamed(context, SearchPage.id);
+      },
       child: Container(
         margin: const EdgeInsets.symmetric(horizontal: 16),
         width: double.infinity,

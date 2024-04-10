@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:weather_application/screens/search_page.dart';
 import 'screens/home_page.dart';
 
 void main() {
@@ -11,9 +11,13 @@ class WeatherApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      routes: {
+        SearchPage.id: (context) => const SearchPage(),
+        HomePage.id: (context) => const HomePage(),
+      },
+      initialRoute: HomePage.id,
     );
   }
 }
