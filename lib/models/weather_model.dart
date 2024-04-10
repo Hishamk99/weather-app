@@ -4,9 +4,9 @@ class WeatherModel {
   final DateTime time;
   final double temp;
   final String condition;
-  final String humidity;
-  final String wind;
-  final String snow;
+  final int humidity;
+  final double wind;
+  final int snow;
 
   WeatherModel({
     required this.cityame,
@@ -18,15 +18,15 @@ class WeatherModel {
     required this.wind,
     required this.snow,
   });
-  factory WeatherModel.frmJso(jsonData) {
+  factory WeatherModel.fromJson(jsonData) {
     return WeatherModel(
       cityame: jsonData['location']['name'],
       image: jsonData['forecast']['forecastday'][0]['day']['condition']['icon'],
-      time: jsonData['current']['last_updated'],
+      time: DateTime.parse(jsonData['current']['last_updated']),
       temp: jsonData['forecast']['forecastday'][0]['day']['avgtemp_c'],
       condition: jsonData['forecast']['forecastday'][0]['day']['condition']
           ['text'],
-      humidity: jsonData['current']['humidity'],
+      humidity: jsonData['forecast']['forecastday'][0]['day']['avghumidity'],
       wind: jsonData['current']['wind_mph'],
       snow: jsonData['forecast']['forecastday'][0]['day']
           ['daily_chance_of_snow'],
